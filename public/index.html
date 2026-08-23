@@ -417,15 +417,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    /* HIDE LINKS ON CASE STUDIES & FIX BACKGROUND */
+    /* HIDE LINKS ON CASE STUDIES & FIX CONTRAST */
     a.e-con {
-        background-color: #D4E9FA !important;
         pointer-events: none !important; /* Double safety to make unclickable */
     }
     
-    /* Make the white logos inside the boxes dark to be visible on light blue */
-    a.e-con img {
-        filter: brightness(0) !important;
+    /* Ensure text inside these dark blue boxes is white and readable */
+    a.e-con, a.e-con p, a.e-con h1, a.e-con h2, a.e-con h3, a.e-con h4, a.e-con h5, a.e-con h6, a.e-con span {
+        color: #FFFFFF !important;
     }
 
 </style>
