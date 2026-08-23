@@ -248,25 +248,28 @@ document.addEventListener("DOMContentLoaded", function () {
         border: none !important;
     }
 
-    /* MERGE NAVBAR INTO BACKGROUND */
+    /* MERGE NAVBAR INTO BACKGROUND BY DEFAULT */
     header, .elementor-location-header, 
     header .elementor-section, 
     header .elementor-container, 
-    header .elementor-widget-wrap,
-    .elementor-sticky--effects,
-    .elementor-sticky--active {
+    header .elementor-widget-wrap {
         box-shadow: none !important;
         border: none !important;
         border-bottom: none !important;
         border-bottom-width: 0 !important;
+        background-color: transparent !important;
+        background-image: none !important;
+        backdrop-filter: none !important;
     }
 
-    /* MAKE HEADER OPAQUE TO FIX FLOATING OVERLAP */
-    header, .elementor-location-header {
+    /* MAKE HEADER OPAQUE ONLY WHEN SCROLLED TO FIX OVERLAP */
+    header.elementor-sticky--effects, .elementor-location-header.elementor-sticky--effects {
         background-color: rgba(250, 252, 255, 0.95) !important;
         backdrop-filter: blur(10px) !important;
-        background-image: none !important;
-        border-bottom: none !important;
+        box-shadow: 0 4px 30px rgba(10, 37, 64, 0.08) !important;
+    }
+    
+    header, .elementor-location-header {
         position: relative !important;
         z-index: 99999 !important;
     }
