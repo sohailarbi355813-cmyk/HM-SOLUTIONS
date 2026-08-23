@@ -220,7 +220,34 @@ document.addEventListener("DOMContentLoaded", function () {
     
     /* Scrollbar */
     ::-webkit-scrollbar-thumb {
-        background: linear-gradient(to bottom, #0A5C36 0%, #148F56 100%) !important;
+        background: linear-gradient(to bottom, #000000 0%, #333333 100%) !important;
+    }
+</style>
+
+<style id="user-requested-overrides">
+    /* ENFORCE WHITE BACKGROUND EVERYWHERE */
+    body, header, footer, section, .elementor-section, .elementor-top-section, .elementor-inner-section, .elementor-container, .elementor-column, .elementor-widget-wrap, .e-con, .e-con-inner, .elementor-location-header, .elementor-location-footer {
+        background-color: #ffffff !important;
+        background: #ffffff !important;
+        background-image: none !important;
+    }
+
+    /* ENFORCE BLACK TEXT EVERYWHERE */
+    *, p, h1, h2, h3, h4, h5, h6, a, span, li, div {
+        color: #000000 !important;
+    }
+
+    /* FORCE ALL SVGS / ICONS TO BLACK (NO BLUE TICKS) */
+    svg, path, i, .elementor-icon, .e-font-icon-svg {
+        fill: #000000 !important;
+        color: #000000 !important;
+    }
+
+    /* MAKE BUTTONS VISIBLE ON WHITE BACKGROUND */
+    .elementor-button, .jkit-button, button, .btn {
+        background-color: #f0f0f0 !important;
+        color: #000000 !important;
+        border: 1px solid #000000 !important;
     }
 </style>
 
