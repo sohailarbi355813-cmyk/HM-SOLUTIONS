@@ -246,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
         max-width: 100% !important;
     }
 
-    /* FIX FOOTER COLUMN OVERLAPPING (Enforce strict Flexbox grid) */
+    /* FIX FOOTER COLUMN OVERLAPPING (Scale fonts and enforce Flexbox grid) */
     footer .elementor-container {
         display: flex !important;
         flex-wrap: wrap !important;
@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
         position: relative !important;
         width: 25% !important;
         margin: 0 !important;
-        padding: 0 15px !important;
+        padding: 0 10px !important;
         flex: 0 0 25% !important;
         max-width: 25% !important;
         box-sizing: border-box !important;
@@ -279,10 +279,22 @@ document.addEventListener("DOMContentLoaded", function () {
             padding: 0 !important;
         }
     }
-    footer .elementor-icon-list-text, footer .elementor-heading-title {
+    
+    /* SCALE DOWN FOOTER TEXT SO IT FITS IN COLUMNS */
+    footer, footer * {
         white-space: normal !important;
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
+        word-wrap: normal !important;
+        word-break: normal !important;
+        overflow-wrap: normal !important;
+    }
+    footer .elementor-icon-list-text, footer p, footer a, footer span {
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+    }
+    footer .elementor-heading-title, footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        margin-bottom: 10px !important;
     }
 
     /* MAKE CONTENT CONTAINERS TRANSPARENT TO REVEAL THE BACKGROUND */
