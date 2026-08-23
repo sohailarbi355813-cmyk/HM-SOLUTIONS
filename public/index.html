@@ -257,9 +257,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* MAKE DROPDOWNS & MEGA-MENUS OPAQUE */
-    .elementskit-dropdown, .elementskit-submenu-panel, .elementskit-megamenu-panel, .elementor-nav-menu--dropdown {
-        background-color: rgba(250, 252, 255, 0.98) !important;
+    .elementskit-dropdown, .elementskit-submenu-panel, .elementskit-megamenu-panel, .elementor-nav-menu--dropdown,
+    .e-n-menu-dropdown, .e-n-menu-content, .e-n-menu-dropdown-content, .e-n-menu-dropdown-icon, .elementor-widget-mega-menu .e-con,
+    .e-n-menu-dropdown .e-con, .elementskit-megamenu-panel .elementor-section, .elementskit-megamenu-panel .e-con,
+    .elementor-nav-menu--dropdown .elementor-section, .elementor-nav-menu--dropdown .elementor-container {
+        background-color: rgba(250, 252, 255, 1) !important;
+        background-image: none !important;
         box-shadow: 0 10px 40px rgba(10, 37, 64, 0.15) !important;
+        backdrop-filter: blur(10px) !important;
     }
 
     /* 30% SECONDARY (TYPOGRAPHY, ICONS, LOGOS) */
