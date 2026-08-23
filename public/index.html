@@ -246,57 +246,6 @@ document.addEventListener("DOMContentLoaded", function () {
         max-width: 100% !important;
     }
 
-    /* FIX FOOTER COLUMN OVERLAPPING (Scale fonts and enforce Flexbox grid) */
-    footer .elementor-container {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        width: 100% !important;
-        max-width: 1200px !important;
-        margin: 0 auto !important;
-        box-sizing: border-box !important;
-    }
-    footer .elementor-column {
-        position: relative !important;
-        width: 25% !important;
-        margin: 0 !important;
-        padding: 0 10px !important;
-        flex: 0 0 25% !important;
-        max-width: 25% !important;
-        box-sizing: border-box !important;
-    }
-    @media (max-width: 1024px) {
-        footer .elementor-column {
-            width: 50% !important;
-            flex: 0 0 50% !important;
-            max-width: 50% !important;
-        }
-    }
-    @media (max-width: 767px) {
-        footer .elementor-column {
-            width: 100% !important;
-            flex: 0 0 100% !important;
-            max-width: 100% !important;
-            padding: 0 !important;
-        }
-    }
-    
-    /* SCALE DOWN FOOTER TEXT SO IT FITS IN COLUMNS */
-    footer, footer * {
-        white-space: normal !important;
-        word-wrap: normal !important;
-        word-break: normal !important;
-        overflow-wrap: normal !important;
-    }
-    footer .elementor-icon-list-text, footer p, footer a, footer span {
-        font-size: 14px !important;
-        line-height: 1.6 !important;
-    }
-    footer .elementor-heading-title, footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
-        font-size: 16px !important;
-        font-weight: 700 !important;
-        margin-bottom: 10px !important;
-    }
-
     /* MAKE CONTENT CONTAINERS TRANSPARENT TO REVEAL THE BACKGROUND */
     section, .elementor-section, .elementor-top-section, .elementor-inner-section, .elementor-container, .elementor-column, .elementor-widget-wrap, .e-con, .e-con-inner, footer, .elementor-location-footer {
         background-color: transparent !important;
@@ -2237,317 +2186,224 @@ document.addEventListener("DOMContentLoaded", function () {
 	
 </main>
 
-			<footer data-elementor-type="footer" data-elementor-id="79" class="elementor elementor-79 elementor-location-footer" data-elementor-post-type="elementor_library">
-					<section class="elementor-section elementor-top-section elementor-element elementor-element-13d5c970 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="13d5c970" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-						<div class="elementor-container elementor-column-gap-no">
-					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-68e5ed58" data-id="68e5ed58" data-element_type="column" data-e-type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-85e1212 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="85e1212" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
-															<img src="/images/logo_transparent.png" alt="HM SOLUTIONS" class="attachment-large size-large wp-image-1856" style="max-width: 250px; height: auto;" />															</div>
-				<div class="elementor-element elementor-element-2098ebf0 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="2098ebf0" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-					<div class="elementor-heading-title elementor-size-default">Premium Healthcare Websites and Medical Marketing for Doctors, Dentists, Surgeons, Med Spas and more in Hamilton, the Greater Toronto Area, &amp; across Canada.</div>				</div>
-				<div class="elementor-element elementor-element-61c5fe26 elementor-shape-square e-grid-align-left e-grid-align-tablet-center elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="61c5fe26" data-element_type="widget" data-e-type="widget" data-widget_type="social-icons.default">
-							<div class="elementor-social-icons-wrapper elementor-grid" role="list">
-							<span class="elementor-grid-item" role="listitem">
-					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin-in elementor-repeater-item-d79193b" href="https://www.linkedin.com/company/hm-solutions" target="_blank">
-						<span class="elementor-screen-only">Linkedin-in</span>
-						<svg aria-hidden="true" class="e-font-icon-svg e-fab-linkedin-in" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>					</a>
-				</span>
-							<span class="elementor-grid-item" role="listitem">
-					<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-e344656" href="http://instagram.com/hmsolutions" target="_blank">
-						<span class="elementor-screen-only">Instagram</span>
-						<svg aria-hidden="true" class="e-font-icon-svg e-fab-instagram" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>					</a>
-				</span>
-					</div>
-						</div>
-				<div class="elementor-element elementor-element-ac3da10 elementor-align-justify elementor-widget__width-initial e-transform elementor-widget-mobile__width-initial elementor-fixed elementor-widget elementor-widget-button" data-id="ac3da10" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_transform_scale_effect_hover&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:1.0500000000000000444089209850062616169452667236328125,&quot;sizes&quot;:[]},&quot;_position&quot;:&quot;fixed&quot;,&quot;_transform_scale_effect_hover_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;_transform_scale_effect_hover_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="button.default">
-										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://hmsolutions.ca/contact-us/">
-						<span class="elementor-button-content-wrapper">
-						<span class="elementor-button-icon">
-				<svg aria-hidden="true" class="e-font-icon-svg e-fab-canadian-maple-leaf" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M383.8 351.7c2.5-2.5 105.2-92.4 105.2-92.4l-17.5-7.5c-10-4.9-7.4-11.5-5-17.4 2.4-7.6 20.1-67.3 20.1-67.3s-47.7 10-57.7 12.5c-7.5 2.4-10-2.5-12.5-7.5s-15-32.4-15-32.4-52.6 59.9-55.1 62.3c-10 7.5-20.1 0-17.6-10 0-10 27.6-129.6 27.6-129.6s-30.1 17.4-40.1 22.4c-7.5 5-12.6 5-17.6-5C293.5 72.3 255.9 0 255.9 0s-37.5 72.3-42.5 79.8c-5 10-10 10-17.6 5-10-5-40.1-22.4-40.1-22.4S183.3 182 183.3 192c2.5 10-7.5 17.5-17.6 10-2.5-2.5-55.1-62.3-55.1-62.3S98.1 167 95.6 172s-5 9.9-12.5 7.5C73 177 25.4 167 25.4 167s17.6 59.7 20.1 67.3c2.4 6 5 12.5-5 17.4L23 259.3s102.6 89.9 105.2 92.4c5.1 5 10 7.5 5.1 22.5-5.1 15-10.1 35.1-10.1 35.1s95.2-20.1 105.3-22.6c8.7-.9 18.3 2.5 18.3 12.5S241 512 241 512h30s-5.8-102.7-5.8-112.8 9.5-13.4 18.4-12.5c10 2.5 105.2 22.6 105.2 22.6s-5-20.1-10-35.1 0-17.5 5-22.5z"></path></svg>			</span>
-									<span class="elementor-button-text">Talk With a Medical Marketing Expert</span>
-					</span>
-					</a>
-								</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-4e2a3867" data-id="4e2a3867" data-element_type="column" data-e-type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-6112adc2 elementor-widget elementor-widget-heading" data-id="6112adc2" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-					<div class="elementor-heading-title elementor-size-default">Contact Info</div>				</div>
-				<div class="elementor-element elementor-element-7ba611ab elementor-align-start elementor-mobile-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="7ba611ab" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
-							<ul class="elementor-icon-list-items">
-							<li class="elementor-icon-list-item">
-											<a href="#">
-
-												<span class="elementor-icon-list-icon">
-							<svg aria-hidden="true" class="e-font-icon-svg e-fas-phone" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path></svg>						</span>
-										<span class="elementor-icon-list-text">(555) 123-4567</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="#">
-
-												<span class="elementor-icon-list-icon">
-							<svg aria-hidden="true" class="e-font-icon-svg e-fas-envelope" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>						</span>
-										<span class="elementor-icon-list-text">hello@hmsolutions.ca</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<span class="elementor-icon-list-icon">
-							<svg aria-hidden="true" class="e-font-icon-svg e-fas-map-marker-alt" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg>						</span>
-										<span class="elementor-icon-list-text">Hamilton and the Greater Toronto Area, Canada.</span>
-									</li>
-						</ul>
-						</div>
-		</div>
-				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-3c475b20" data-id="3c475b20" data-element_type="column" data-e-type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-1ce60116 elementor-widget elementor-widget-heading" data-id="1ce60116" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-					<div class="elementor-heading-title elementor-size-default">Navigation</div>				</div>
-				<div class="elementor-element elementor-element-17609b54 elementor-align-start elementor-mobile-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="17609b54" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
-							<ul class="elementor-icon-list-items">
-							<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca">
-
-											<span class="elementor-icon-list-text">Home</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/contact-us">
-
-											<span class="elementor-icon-list-text">Contact HM SOLUTIONS</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/resources/">
-
-											<span class="elementor-icon-list-text">Blogs &amp; Resources</span>
-											</a>
-									</li>
-						</ul>
-						</div>
-				<div class="elementor-element elementor-element-20e8e6b elementor-widget elementor-widget-heading" data-id="20e8e6b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-					<div class="elementor-heading-title elementor-size-default">Specialized Marketing</div>				</div>
-				<div class="elementor-element elementor-element-c1c0caf elementor-align-start elementor-mobile-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="c1c0caf" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
-							<ul class="elementor-icon-list-items">
-							<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca">
-
-											<span class="elementor-icon-list-text">Doctor Marketing Agency</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/chiropractor-marketing-agency-and-web-design/">
-
-											<span class="elementor-icon-list-text">Chiropractor Marketing Agency</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/dental-marketing-agency/">
-
-											<span class="elementor-icon-list-text">Dental Marketing Agency</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/home-care-marketing-agency/">
-
-											<span class="elementor-icon-list-text">Home Care Marketing Agency</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/bariatric-marketing-agency/">
-
-											<span class="elementor-icon-list-text">Bariatric Marketing Agency</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/pharmacy-marketing-agency/">
-
-											<span class="elementor-icon-list-text">Pharmacy Marketing Agency</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/pediatric-dental-marketing-agency/">
-
-											<span class="elementor-icon-list-text">Pediatric Dental Marketing Agency</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/medical-doctor-marketing-primary-care-physician-marketing/">
-
-											<span class="elementor-icon-list-text">Primary Care Physician / Medical Doctor Marketing</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/fertility-clinic-digital-marketing/">
-
-											<span class="elementor-icon-list-text">Fertility Clinic Marketing</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/orthopedic-marketing-agency/">
-
-											<span class="elementor-icon-list-text">Orthopedic Marketing Agency</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/mental-health-marketing-agency/">
-
-											<span class="elementor-icon-list-text">Mental Health Marketing Agency</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/pain-management-marketing-agency/">
-
-											<span class="elementor-icon-list-text">Pain Management Marketing Agency</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/urology-marketing-agency/">
-
-											<span class="elementor-icon-list-text">Urology Marketing Agency</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/naturopathic-marketing-agency/">
-
-											<span class="elementor-icon-list-text">Naturopathic Marketing Agency</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/ophthalmology-eye-surgery-marketing-agency/">
-
-											<span class="elementor-icon-list-text">Ophthalmology &amp; Eye Surgery Marketing Agency</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/private-clinic-marketing-agency/">
-
-											<span class="elementor-icon-list-text">Marketing for Private Clinics</span>
-											</a>
-									</li>
-						</ul>
-						</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-996d67b" data-id="996d67b" data-element_type="column" data-e-type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-49ea791 elementor-widget elementor-widget-heading" data-id="49ea791" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-					<div class="elementor-heading-title elementor-size-default"><a href="https://hmsolutions.ca/medical-marketing-services/">Medical Marketing Services</a></div>				</div>
-				<div class="elementor-element elementor-element-77d41fb elementor-align-start elementor-mobile-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="77d41fb" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
-							<ul class="elementor-icon-list-items">
-							<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/medical-website-design/">
-
-											<span class="elementor-icon-list-text">Medical Website Design</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/medical-seo/">
-
-											<span class="elementor-icon-list-text">Medical SEO</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/medical-ppc/">
-
-											<span class="elementor-icon-list-text">Medical Pay-Per-Click</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/healthcare-social-media-marketing/">
-
-											<span class="elementor-icon-list-text">Medical Social Media</span>
-											</a>
-									</li>
-						</ul>
-						</div>
-				<div class="elementor-element elementor-element-370c4f7 elementor-widget elementor-widget-heading" data-id="370c4f7" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-					<div class="elementor-heading-title elementor-size-default">Specialized Web Design &amp; SEO</div>				</div>
-				<div class="elementor-element elementor-element-215b28c elementor-align-start elementor-mobile-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="215b28c" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
-							<ul class="elementor-icon-list-items">
-							<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/chiropractor-website-design/">
-
-											<span class="elementor-icon-list-text">Chiropractor Web Design</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/medical-spa-website-design/">
-
-											<span class="elementor-icon-list-text">Medical Spa Website Design</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/home-care-website-design/">
-
-											<span class="elementor-icon-list-text">Home Care Website Design</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/chiropractic-seo/">
-
-											<span class="elementor-icon-list-text">Chiropractor SEO</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://hmsolutions.ca/dental-seo/">
-
-											<span class="elementor-icon-list-text">Dental SEO</span>
-											</a>
-									</li>
-						</ul>
-						</div>
-					</div>
-		</div>
-					</div>
-		</section>
-		<div class="elementor-element elementor-element-51eb603 e-flex e-con-boxed e-con e-parent" data-id="51eb603" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-b4a4dd4 elementor-view-default elementor-position-block-start elementor-mobile-position-block-start elementor-widget elementor-widget-icon-box" data-id="b4a4dd4" data-element_type="widget" data-e-type="widget" data-widget_type="icon-box.default">
-							<div class="elementor-icon-box-wrapper">
-
-						<div class="elementor-icon-box-icon">
-				<span  class="elementor-icon">
-				<svg aria-hidden="true" class="e-font-icon-svg e-fab-canadian-maple-leaf" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M383.8 351.7c2.5-2.5 105.2-92.4 105.2-92.4l-17.5-7.5c-10-4.9-7.4-11.5-5-17.4 2.4-7.6 20.1-67.3 20.1-67.3s-47.7 10-57.7 12.5c-7.5 2.4-10-2.5-12.5-7.5s-15-32.4-15-32.4-52.6 59.9-55.1 62.3c-10 7.5-20.1 0-17.6-10 0-10 27.6-129.6 27.6-129.6s-30.1 17.4-40.1 22.4c-7.5 5-12.6 5-17.6-5C293.5 72.3 255.9 0 255.9 0s-37.5 72.3-42.5 79.8c-5 10-10 10-17.6 5-10-5-40.1-22.4-40.1-22.4S183.3 182 183.3 192c2.5 10-7.5 17.5-17.6 10-2.5-2.5-55.1-62.3-55.1-62.3S98.1 167 95.6 172s-5 9.9-12.5 7.5C73 177 25.4 167 25.4 167s17.6 59.7 20.1 67.3c2.4 6 5 12.5-5 17.4L23 259.3s102.6 89.9 105.2 92.4c5.1 5 10 7.5 5.1 22.5-5.1 15-10.1 35.1-10.1 35.1s95.2-20.1 105.3-22.6c8.7-.9 18.3 2.5 18.3 12.5S241 512 241 512h30s-5.8-102.7-5.8-112.8 9.5-13.4 18.4-12.5c10 2.5 105.2 22.6 105.2 22.6s-5-20.1-10-35.1 0-17.5 5-22.5z"></path></svg>				</span>
-			</div>
 			
-						<div class="elementor-icon-box-content">
+<style>
+/* Clean HM SOLUTIONS Footer CSS */
+.hm-custom-footer {
+    background: transparent;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    color: #0A2540;
+}
+.hm-custom-footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+@media (max-width: 1024px) {
+    .hm-custom-footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+}
+@media (max-width: 767px) {
+    .hm-custom-footer-grid { grid-template-columns: 1fr; }
+}
+.hm-footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.hm-footer-col h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0A2540;
+    margin: 0 0 5px 0;
+}
+.hm-footer-col p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #0A2540;
+    margin: 0;
+}
+.hm-footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.hm-footer-col ul li a {
+    text-decoration: none;
+    color: #0A2540;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+.hm-footer-col ul li a:hover {
+    color: #0A5C36;
+}
+.hm-footer-icon-text {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: #0A2540;
+    text-decoration: none;
+}
+.hm-footer-icon-text svg {
+    width: 16px;
+    height: 16px;
+    fill: #0A5C36;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+.hm-footer-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0A5C36;
+    color: #FFFFFF !important;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+.hm-footer-btn svg {
+    width: 16px; height: 16px; fill: #FFFFFF; margin-right: 8px;
+}
+.hm-footer-btn:hover {
+    background-color: #064025;
+}
+.hm-footer-socials {
+    display: flex;
+    gap: 15px;
+}
+.hm-footer-socials a svg {
+    width: 20px;
+    height: 20px;
+    fill: #0A2540;
+    transition: fill 0.3s;
+}
+.hm-footer-socials a:hover svg {
+    fill: #0A5C36;
+}
+.hm-footer-bottom {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(10, 37, 64, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+.hm-footer-bottom p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #0A2540;
+}
+.hm-footer-bottom-links {
+    display: flex;
+    gap: 20px;
+}
+.hm-footer-bottom-links a {
+    color: #0A2540;
+    text-decoration: none;
+    font-size: 13px;
+}
+.hm-footer-bottom-links a:hover {
+    color: #0A5C36;
+}
+</style>
 
-				
-									<p class="elementor-icon-box-description">
-						<b>We're yours, Canada!</b> Proud to provide Canadian healthcare providers and clinics with medical marketing in and around: Toronto, Mississauga, Hamilton, Burlington, Oakville, Markham, Windsor, Vaughan, Ottawa, Brampton, Richmond Hill, and Niagara Falls, <b>Ontario</b> | Montreal, Laval, Quebec City, and Gatineau, <b>Quebec</b> | Calgary and Edmonton, <b>Alberta</b> | Vancouver, Surrey, Burnaby, Victoria, and Kelowna, <b>British Columbia</b> | Winnipeg, <b>Manitoba</b> | Halifax, <b>Nova Scotia</b> | Regina, <b>Saskatchewan</b>					</p>
-				
-			</div>
-			
-		</div>
-						</div>
-					</div>
-				</div>
-		<div class="elementor-element elementor-element-2488f5e e-flex e-con-boxed e-con e-parent" data-id="2488f5e" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-278b1ee elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="278b1ee" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
-															<img width="792" height="428" src="https://minamedical.ca/wp-content/uploads/2024/06/phipa-1.png" class="attachment-large size-large wp-image-1369" alt="" decoding="async" srcset="https://minamedical.ca/wp-content/uploads/2024/06/phipa-1.png 792w, https://minamedical.ca/wp-content/uploads/2024/06/phipa-1-300x162.png 300w, https://minamedical.ca/wp-content/uploads/2024/06/phipa-1-768x415.png 768w, https://minamedical.ca/wp-content/uploads/2024/06/phipa-1-600x324.png 600w" sizes="(max-width: 792px) 100vw, 792px" />															</div>
-				<div class="elementor-element elementor-element-c0d8d97 elementor-icon-list--layout-inline elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="c0d8d97" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
-							<ul class="elementor-icon-list-items elementor-inline-items">
-							<li class="elementor-icon-list-item elementor-inline-item">
-											<a href="https://hmsolutions.ca/terms-conditions/">
+<footer class="hm-custom-footer">
+    <div class="hm-custom-footer-grid">
+        <div class="hm-footer-col">
+            <img src="/images/logo_transparent.png" alt="HM SOLUTIONS" style="max-width: 220px; height: auto;" />
+            <p>Premium Healthcare Websites and Medical Marketing for Doctors, Dentists, Surgeons, Med Spas and more in Hamilton, the Greater Toronto Area, &amp; across Canada.</p>
+            <div class="hm-footer-socials">
+                <a href="https://www.linkedin.com/company/hm-solutions" target="_blank"><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg></a>
+                <a href="http://instagram.com/hmsolutions" target="_blank"><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg></a>
+            </div>
+            <a class="hm-footer-btn" href="https://hmsolutions.ca/contact-us/">
+                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M383.8 351.7c2.5-2.5 105.2-92.4 105.2-92.4l-17.5-7.5c-10-4.9-7.4-11.5-5-17.4 2.4-7.6 20.1-67.3 20.1-67.3s-47.7 10-57.7 12.5c-7.5 2.4-10-2.5-12.5-7.5s-15-32.4-15-32.4-52.6 59.9-55.1 62.3c-10 7.5-20.1 0-17.6-10 0-10 27.6-129.6 27.6-129.6s-30.1 17.4-40.1 22.4c-7.5 5-12.6 5-17.6-5C293.5 72.3 255.9 0 255.9 0s-37.5 72.3-42.5 79.8c-5 10-10 10-17.6 5-10-5-40.1-22.4-40.1-22.4S183.3 182 183.3 192c2.5 10-7.5 17.5-17.6 10-2.5-2.5-55.1-62.3-55.1-62.3S98.1 167 95.6 172s-5 9.9-12.5 7.5C73 177 25.4 167 25.4 167s17.6 59.7 20.1 67.3c2.4 6 5 12.5-5 17.4L23 259.3s102.6 89.9 105.2 92.4c5.1 5 10 7.5 5.1 22.5-5.1 15-10.1 35.1-10.1 35.1s95.2-20.1 105.3-22.6c8.7-.9 18.3 2.5 18.3 12.5S241 512 241 512h30s-5.8-102.7-5.8-112.8 9.5-13.4 18.4-12.5c10 2.5 105.2 22.6 105.2 22.6s-5-20.1-10-35.1 0-17.5 5-22.5z"></path></svg>
+                Talk With an Expert
+            </a>
+        </div>
+        <div class="hm-footer-col">
+            <h4>Contact Info</h4>
+            <a href="tel:5551234567" class="hm-footer-icon-text">
+                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path></svg>
+                (555) 123-4567
+            </a>
+            <a href="mailto:hello@hmsolutions.ca" class="hm-footer-icon-text">
+                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>
+                hello@hmsolutions.ca
+            </a>
+            <div class="hm-footer-icon-text">
+                <svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg>
+                Hamilton and the Greater Toronto Area, Canada.
+            </div>
+        </div>
+        <div class="hm-footer-col">
+            <h4>Navigation</h4>
+            <ul>
+                <li><a href="https://hmsolutions.ca">Home</a></li>
+                <li><a href="https://hmsolutions.ca/contact-us">Contact HM SOLUTIONS</a></li>
+                <li><a href="https://hmsolutions.ca/resources/">Blogs &amp; Resources</a></li>
+            </ul>
+            <h4 style="margin-top: 15px;">Specialized Marketing</h4>
+            <ul>
+                <li><a href="https://hmsolutions.ca">Doctor Marketing Agency</a></li>
+                <li><a href="https://hmsolutions.ca/chiropractor-marketing-agency-and-web-design/">Chiropractor Marketing</a></li>
+                <li><a href="https://hmsolutions.ca/dental-marketing-agency/">Dental Marketing</a></li>
+                <li><a href="https://hmsolutions.ca/home-care-marketing-agency/">Home Care Marketing</a></li>
+                <li><a href="https://hmsolutions.ca/bariatric-marketing-agency/">Bariatric Marketing</a></li>
+                <li><a href="https://hmsolutions.ca/pharmacy-marketing-agency/">Pharmacy Marketing Agency</a></li>
+                <li><a href="https://hmsolutions.ca/pediatric-dental-marketing-agency/">Pediatric Dental Marketing Agency</a></li>
+                <li><a href="https://hmsolutions.ca/medical-doctor-marketing-primary-care-physician-marketing/">Primary Care Physician / Medical Doctor Marketing</a></li>
+                <li><a href="https://hmsolutions.ca/fertility-clinic-digital-marketing/">Fertility Clinic Marketing</a></li>
+                <li><a href="https://hmsolutions.ca/orthopedic-marketing-agency/">Orthopedic Marketing Agency</a></li>
+                <li><a href="https://hmsolutions.ca/mental-health-marketing-agency/">Mental Health Marketing Agency</a></li>
+                <li><a href="https://hmsolutions.ca/pain-management-marketing-agency/">Pain Management Marketing Agency</a></li>
+                <li><a href="https://hmsolutions.ca/urology-marketing-agency/">Urology Marketing Agency</a></li>
+                <li><a href="https://hmsolutions.ca/naturopathic-marketing-agency/">Naturopathic Marketing Agency</a></li>
+                <li><a href="https://hmsolutions.ca/ophthalmology-eye-surgery-marketing-agency/">Ophthalmology &amp; Eye Surgery Marketing Agency</a></li>
+                <li><a href="https://hmsolutions.ca/private-clinic-marketing-agency/">Marketing for Private Clinics</a></li>
+            </ul>
+        </div>
+        <div class="hm-footer-col">
+            <h4>Medical Marketing Services</h4>
+            <ul>
+                <li><a href="https://hmsolutions.ca/medical-website-design/">Medical Website Design</a></li>
+                <li><a href="https://hmsolutions.ca/medical-seo/">Medical SEO</a></li>
+                <li><a href="https://hmsolutions.ca/medical-ppc/">Medical Pay-Per-Click</a></li>
+                <li><a href="https://hmsolutions.ca/healthcare-social-media-marketing/">Medical Social Media</a></li>
+            </ul>
+            <h4 style="margin-top: 15px;">Specialized Web Design</h4>
+            <ul>
+                <li><a href="https://hmsolutions.ca/chiropractor-website-design/">Chiropractor Web Design</a></li>
+                <li><a href="https://hmsolutions.ca/medical-spa-website-design/">Medical Spa Web Design</a></li>
+                <li><a href="https://hmsolutions.ca/home-care-website-design/">Home Care Web Design</a></li>
+                <li><a href="https://hmsolutions.ca/chiropractic-seo/">Chiropractor SEO</a></li>
+                <li><a href="https://hmsolutions.ca/dental-seo/">Dental SEO</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="hm-footer-bottom">
+        <svg style="width: 24px; height: 24px; fill: #0A5C36;" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M383.8 351.7c2.5-2.5 105.2-92.4 105.2-92.4l-17.5-7.5c-10-4.9-7.4-11.5-5-17.4 2.4-7.6 20.1-67.3 20.1-67.3s-47.7 10-57.7 12.5c-7.5 2.4-10-2.5-12.5-7.5s-15-32.4-15-32.4-52.6 59.9-55.1 62.3c-10 7.5-20.1 0-17.6-10 0-10 27.6-129.6 27.6-129.6s-30.1 17.4-40.1 22.4c-7.5 5-12.6 5-17.6-5C293.5 72.3 255.9 0 255.9 0s-37.5 72.3-42.5 79.8c-5 10-10 10-17.6 5-10-5-40.1-22.4-40.1-22.4S183.3 182 183.3 192c2.5 10-7.5 17.5-17.6 10-2.5-2.5-55.1-62.3-55.1-62.3S98.1 167 95.6 172s-5 9.9-12.5 7.5C73 177 25.4 167 25.4 167s17.6 59.7 20.1 67.3c2.4 6 5 12.5-5 17.4L23 259.3s102.6 89.9 105.2 92.4c5.1 5 10 7.5 5.1 22.5-5.1 15-10.1 35.1-10.1 35.1s95.2-20.1 105.3-22.6c8.7-.9 18.3 2.5 18.3 12.5S241 512 241 512h30s-5.8-102.7-5.8-112.8 9.5-13.4 18.4-12.5c10 2.5 105.2 22.6 105.2 22.6s-5-20.1-10-35.1 0-17.5 5-22.5z"></path></svg>
+        <p><b>We're yours, Canada!</b> Proud to provide Canadian healthcare providers and clinics with medical marketing in and around: Toronto, Mississauga, Hamilton, Burlington, Oakville, Markham, Windsor, Vaughan, Ottawa, Brampton, Richmond Hill, and Niagara Falls, <b>Ontario</b> | Montreal, Laval, Quebec City, and Gatineau, <b>Quebec</b> | Calgary and Edmonton, <b>Alberta</b> | Vancouver, Surrey, Burnaby, Victoria, and Kelowna, <b>British Columbia</b> | Winnipeg, <b>Manitoba</b> | Halifax, <b>Nova Scotia</b> | Regina, <b>Saskatchewan</b></p>
+        <img width="200" src="https://hmsolutions.ca/wp-content/uploads/2024/06/phipa-1.png" alt="PHIPA Compliant" />
+        <div class="hm-footer-bottom-links">
+            <a href="https://hmsolutions.ca/terms-conditions/">Terms &amp; Conditions</a>
+            <a href="https://hmsolutions.ca/privacy-policy/">Privacy Policy</a>
+        </div>
+    </div>
+</footer>
 
-											<span class="elementor-icon-list-text">Terms &amp; Conditions</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item elementor-inline-item">
-											<a href="https://hmsolutions.ca/privacy-policy/">
-
-											<span class="elementor-icon-list-text">Privacy Policy</span>
-											</a>
-									</li>
-						</ul>
-						</div>
-					</div>
-				</div>
-				</footer>
 		
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
