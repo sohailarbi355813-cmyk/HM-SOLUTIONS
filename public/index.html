@@ -245,10 +245,18 @@ document.addEventListener("DOMContentLoaded", function () {
         color: #000000 !important;
     }
 
-    /* FORCE ALL SVGS / ICONS TO BLACK (NO BLUE TICKS) */
-    svg, path, i, .elementor-icon, .e-font-icon-svg {
-        fill: #000000 !important;
+    /* REMOVE BLUE TICKS AND FIX ICONS */
+    i, .elementor-icon, .e-font-icon-svg {
         color: #000000 !important;
+    }
+    .elementor-icon-list-icon svg, .elementor-icon-list-icon path {
+        fill: #000000 !important;
+    }
+
+    /* FIX ANIMATED HEADLINE HIGHLIGHTS (DONT FILL SOLID BLACK) */
+    .elementor-headline-dynamic-wrapper svg path {
+        stroke: #000000 !important;
+        fill: none !important;
     }
 
     /* MAKE BUTTONS VISIBLE ON WHITE BACKGROUND */
