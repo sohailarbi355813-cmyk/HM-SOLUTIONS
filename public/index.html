@@ -245,6 +245,20 @@ document.addEventListener("DOMContentLoaded", function () {
         background-color: transparent !important;
         background: transparent !important;
         background-image: none !important;
+        border: none !important;
+    }
+
+    /* MERGE NAVBAR INTO BACKGROUND */
+    header, .elementor-location-header, 
+    header .elementor-section, 
+    header .elementor-container, 
+    header .elementor-widget-wrap,
+    .elementor-sticky--effects,
+    .elementor-sticky--active {
+        box-shadow: none !important;
+        border: none !important;
+        border-bottom: none !important;
+        border-bottom-width: 0 !important;
     }
 
     /* MAKE HEADER OPAQUE TO FIX FLOATING OVERLAP */
@@ -252,8 +266,6 @@ document.addEventListener("DOMContentLoaded", function () {
         background-color: rgba(250, 252, 255, 0.95) !important;
         backdrop-filter: blur(10px) !important;
         background-image: none !important;
-        box-shadow: none !important;
-        border: none !important;
         border-bottom: none !important;
         position: relative !important;
         z-index: 99999 !important;
