@@ -245,6 +245,15 @@ document.addEventListener("DOMContentLoaded", function () {
         color: #000000 !important;
     }
 
+    /* FIX INVISIBLE WHITE PARTNER LOGOS ON LIGHT BACKGROUND */
+    img.elementor-animation-grow {
+        filter: brightness(0) !important;
+        opacity: 0.7 !important;
+    }
+    img.elementor-animation-grow:hover {
+        opacity: 1 !important;
+    }
+
     /* REMOVE BLUE TICKS AND FIX ICONS */
     i, .elementor-icon, .e-font-icon-svg {
         color: #000000 !important;
