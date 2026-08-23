@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<script>
+    (function() {
+        var p = prompt("Enter Admin Password:");
+        if (p !== "hmsolutions0826") {
+            document.documentElement.innerHTML = "<body style='background:#FAFCFF; color:#0A2540; font-family:sans-serif; display:flex; justify-content:center; align-items:center; height:100vh; margin:0;'><h2 style='color:#00D084;'>Access Denied.</h2></body>";
+            throw new Error("Access Denied");
+        }
+    })();
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HM SOLUTIONS - Admin Invoice Generator</title>
