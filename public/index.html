@@ -267,6 +267,11 @@ document.addEventListener("DOMContentLoaded", function () {
         backdrop-filter: blur(10px) !important;
     }
 
+    /* FIX INVISIBLE CASE STUDY LOGOS (Turn white to Medical Green #00D084) */
+    .wp-image-4587, .wp-image-4589 {
+        filter: brightness(0) saturate(100%) invert(64%) sepia(38%) saturate(5232%) hue-rotate(114deg) brightness(98%) contrast(98%) !important;
+    }
+
     /* 30% SECONDARY (TYPOGRAPHY, ICONS, LOGOS) */
     *, p, h1, h2, h3, h4, h5, h6, a, span, li, div {
         color: #0A2540 !important;
