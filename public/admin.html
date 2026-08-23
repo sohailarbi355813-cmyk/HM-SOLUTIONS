@@ -412,11 +412,67 @@
         }
 
         @media print {
+            /* Hide controls */
             .app-topbar, .sidebar { display: none !important; }
-            .app-body { grid-template-columns: 1fr; }
+            .app-body { display: block; }
             .preview-area { padding: 0; overflow: visible; }
-            .invoice-paper { box-shadow: none; border-radius: 0; padding: 20px; }
             #app { background: white; }
+
+            /* Invoice paper styling for print */
+            .invoice-paper {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                padding: 30px 36px !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+            }
+
+            /* Keep the green accent line */
+            .inv-header {
+                border-bottom: 3px solid #00D084 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            /* Keep dark table header */
+            .inv-items-table thead tr {
+                background: #0A2540 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .inv-items-table thead th {
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            /* Keep alternating row shading */
+            .inv-items-table tbody tr:nth-child(even) {
+                background: #F8FAFC !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            /* Keep dark total row */
+            .total-final {
+                background: #0A2540 !important;
+                border-radius: 6px !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .total-final td {
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            /* HIDE subtotal and tax rows — only show TOTAL DUE */
+            .inv-hide-on-print {
+                display: none !important;
+            }
+
+            /* Prevent page break inside invoice */
+            .invoice-paper { page-break-inside: avoid; }
         }
     </style>
 </head>
@@ -546,11 +602,11 @@
                 <div class="inv-totals">
                     <div class="inv-totals-inner">
                         <table>
-                            <tr>
+                            <tr class="inv-hide-on-print">
                                 <td>Subtotal:</td>
                                 <td id="out-subtotal">$0.00</td>
                             </tr>
-                            <tr>
+                            <tr class="inv-hide-on-print">
                                 <td>Tax (<span id="out-tax-rate">13</span>%):</td>
                                 <td id="out-tax">$0.00</td>
                             </tr>
