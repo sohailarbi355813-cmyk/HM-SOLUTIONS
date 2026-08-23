@@ -2387,7 +2387,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="hm-footer-col">
             <h4>Navigation</h4>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="#contact">Contact HM SOLUTIONS</a></li>
                 <li><a href="#contact">Blogs &amp; Resources</a></li>
             </ul>
@@ -2781,7 +2781,7 @@ button.hm-mob-accordion[aria-expanded="true"] .hm-mob-arrow { transform: rotate(
     </div>
     <nav class="hm-mobile-nav">
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li>
                 <button class="hm-mob-accordion" aria-expanded="false" aria-controls="hm-sub-medical">
                     Medical Marketing <span class="hm-mob-arrow">▼</span>
@@ -2813,16 +2813,7 @@ button.hm-mob-accordion[aria-expanded="true"] .hm-mob-arrow { transform: rotate(
                     <li><a href="#contact">Physiotherapy Marketing Agency</a></li>
                 </ul>
             </li>
-            <li>
-                <button class="hm-mob-accordion" aria-expanded="false" aria-controls="hm-sub-tools">
-                    Tools &amp; Resources <span class="hm-mob-arrow">▼</span>
-                </button>
-                <ul class="hm-mob-submenu" id="hm-sub-tools" aria-hidden="true">
-                    <li><a href="#contact">Blogs &amp; Resources</a></li>
-                    <li><a href="#contact">Medical Reputation Management</a></li>
-                    <li><a href="#contact">Medical AI Missed Call Capture</a></li>
-                </ul>
-            </li>
+            
         </ul>
     </nav>
     <div class="hm-mobile-panel-footer">
@@ -2869,6 +2860,16 @@ button.hm-mob-accordion[aria-expanded="true"] .hm-mob-arrow { transform: rotate(
         // Escape key
         document.addEventListener('keydown', function(e) {
             if(e.key === 'Escape') closePanel();
+        });
+
+        // Close panel on link click
+        document.querySelectorAll('.hm-mobile-nav a, .hm-mobile-panel-footer a').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                var href = this.getAttribute('href');
+                if(href && href.startsWith('#')) {
+                    closePanel();
+                }
+            });
         });
 
         // Accordion toggles
