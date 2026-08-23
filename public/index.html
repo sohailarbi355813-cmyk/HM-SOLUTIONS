@@ -2957,71 +2957,74 @@ button.hm-mob-accordion[aria-expanded="true"] .hm-mob-arrow { transform: rotate(
 })();
 </script>
 
+
 <script id="hm-all-fixes-js">
 (function() {
     function applyFixes() {
         var header = document.querySelector('header');
         if (!header) return;
 
-        // Fix all sublinks in header to go to #contact
+        // ── 1. Fix all sublinks to #contact (skip logo, Home, and Admin) ──
         header.querySelectorAll('a').forEach(function(a) {
+            if (a.dataset.hmDone) return; // skip already-processed
+            if (a.closest('.hm-admin-desktop-li')) return; // SKIP Admin link
             if (a.querySelector('img')) return; // skip logo
-            var txt = (a.textContent || '').trim().toLowerCase();
-            if (txt === 'home') { a.href = '/'; return; }
-            if (txt === 'admin') return; // skip admin link we added
-            // Override href and click
+            var txt = (a.textContent || '').trim();
+            if (txt === 'Home') { a.href = '/'; a.dataset.hmDone = '1'; return; }
+            // Everything else -> contact form
             a.href = '#contact';
-            if (!a.dataset.hmFixed) {
-                a.dataset.hmFixed = '1';
-                a.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    var target = document.getElementById('contact');
-                    if (target) target.scrollIntoView({ behavior: 'smooth' });
-                    else window.location.hash = '#contact';
-                });
-            }
+            a.dataset.hmDone = '1';
+            a.addEventListener('click', function(e) {
+                e.preventDefault();
+                var t = document.getElementById('contact');
+                if (t) t.scrollIntoView({ behavior: 'smooth' });
+                else window.location.hash = '#contact';
+            });
         });
 
-        // Hide Resources menu item
-        var allItems = header.querySelectorAll('.e-n-menu-item, li');
-        allItems.forEach(function(item) {
-            var t = item.querySelector('.e-n-menu-title-text, > a');
+        // ── 2. Hide Resources menu item ──────────────────────────────────
+        header.querySelectorAll('.e-n-menu-item').forEach(function(item) {
+            var t = item.querySelector('.e-n-menu-title-text');
             if (t && t.textContent.trim() === 'Resources') {
                 item.style.display = 'none';
             }
         });
 
-        // Add Admin link to desktop nav
-        // Try multiple selectors for the Elementor menu
-        var menus = header.querySelectorAll('.e-n-menu, .elementskit-menu-container > ul, nav > ul');
-        var adminAdded = false;
-        menus.forEach(function(menu) {
-            if (!adminAdded && !menu.querySelector('.hm-admin-desktop-li') && menu.children.length > 0) {
-                var li = document.createElement('li');
-                li.className = 'hm-admin-desktop-li';
-                li.style.cssText = 'display:flex;align-items:center;list-style:none;';
-                li.innerHTML = '<a href="/admin.html" style="display:flex;align-items:center;gap:5px;color:#0A2540;text-decoration:none;font-weight:600;font-size:15px;padding:8px 12px;white-space:nowrap;">' +
-                    '<svg style="width:13px;height:13px;fill:#00D084;" viewBox="0 0 448 512"><path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"/></svg>' +
-                    'Admin</a>';
-                menu.appendChild(li);
-                adminAdded = true;
-            }
-        });
+        // ── 3. Add Admin link into the Elementor menu UL ─────────────────
+        var menuUL = header.querySelector('ul.e-n-menu-heading');
+        if (menuUL && !menuUL.querySelector('.hm-admin-desktop-li')) {
+            var li = document.createElement('li');
+            li.className = 'e-n-menu-item hm-admin-desktop-li';
+            var div = document.createElement('div');
+            div.className = 'e-n-menu-title';
+            div.style.cssText = 'display:flex;align-items:center;height:100%;';
+            var a = document.createElement('a');
+            a.href = '/admin.html';
+            a.className = 'e-n-menu-title-container e-focus e-link';
+            a.style.cssText = 'display:flex;align-items:center;gap:5px;text-decoration:none;';
+            a.dataset.hmDone = '1'; // mark so redirect script won't touch it
+            a.innerHTML = '<svg style="width:13px;height:13px;fill:#00D084;flex-shrink:0;" viewBox="0 0 448 512"><path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"/></svg><span class="e-n-menu-title-text">Admin</span>';
+            div.appendChild(a);
+            li.appendChild(div);
+            menuUL.appendChild(li);
+        }
     }
 
-    // Run at multiple intervals to catch Elementor's lazy init
+    var done = false;
+    function runOnce() { if (!done) { applyFixes(); done = false; } applyFixes(); }
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
             applyFixes();
-            setTimeout(applyFixes, 800);
-            setTimeout(applyFixes, 2000);
-            setTimeout(applyFixes, 4000);
+            setTimeout(applyFixes, 600);
+            setTimeout(applyFixes, 1500);
+            setTimeout(applyFixes, 3000);
         });
     } else {
         applyFixes();
-        setTimeout(applyFixes, 800);
-        setTimeout(applyFixes, 2000);
-        setTimeout(applyFixes, 4000);
+        setTimeout(applyFixes, 600);
+        setTimeout(applyFixes, 1500);
+        setTimeout(applyFixes, 3000);
     }
 })();
 </script>
