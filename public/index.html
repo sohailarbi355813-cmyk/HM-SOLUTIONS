@@ -465,12 +465,20 @@ document.addEventListener("DOMContentLoaded", function () {
 </style>
 
 
-<style id="hm-close-btn-fix">
-/* Force hamburger close button fully inside panel */
+
+
+<style id="hm-all-fixes">
+/* 1. Hide Resources menu item on desktop */
+.e-n-menu-item:has(.e-n-menu-title-text) {
+    /* handled in JS */
+}
+
+/* 2. Hamburger close button always visible inside panel */
 .hm-mobile-panel-header {
     box-sizing: border-box !important;
     padding: 14px 16px !important;
     overflow: hidden !important;
+    width: 100% !important;
 }
 .hm-mobile-panel-close {
     flex-shrink: 0 !important;
@@ -485,10 +493,100 @@ document.addEventListener("DOMContentLoaded", function () {
 }
 .hm-mobile-panel-logo {
     max-width: 130px !important;
-    min-width: 0 !important;
     flex-shrink: 1 !important;
 }
+
+/* 3. Hide Resources tab */
+.hm-resources-hidden { display: none !important; }
+
+/* 4. Admin desktop link style */
+.hm-admin-desktop-li {
+    display: flex !important;
+    align-items: center !important;
+}
+.hm-admin-desktop-li a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    color: #0A2540 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    padding: 8px 12px !important;
+    white-space: nowrap !important;
+}
+.hm-admin-desktop-li svg { flex-shrink: 0; }
 </style>
+
+<script id="hm-all-fixes-js">
+(function() {
+    function applyFixes() {
+        // ── 1. Redirect ALL header sublinks to #contact ──────────────────
+        var header = document.querySelector('header');
+        if (header) {
+            header.querySelectorAll('a').forEach(function(a) {
+                var txt = a.textContent.trim().toLowerCase();
+                var href = a.getAttribute('href') || '';
+                // Skip the logo link and the top-level "Home" link
+                if (a.querySelector('img')) return; // logo
+                if (txt === 'home') {
+                    a.href = '/';
+                    return;
+                }
+                // Everything else goes to booking form
+                a.href = '#contact';
+                a.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Close any Elementor dropdown
+                    document.querySelectorAll('.e-n-menu-item.e-n-menu-item--open').forEach(function(el) {
+                        el.classList.remove('e-n-menu-item--open');
+                    });
+                    // Scroll to contact section
+                    var target = document.getElementById('contact');
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
+                    else window.location.hash = '#contact';
+                });
+            });
+        }
+
+        // ── 2. Hide the "Resources" desktop menu item ─────────────────────
+        var menuItems = document.querySelectorAll('header .e-n-menu-item');
+        menuItems.forEach(function(item) {
+            var titleEl = item.querySelector('.e-n-menu-title-text');
+            if (titleEl && titleEl.textContent.trim() === 'Resources') {
+                item.classList.add('hm-resources-hidden');
+            }
+        });
+
+        // ── 3. Add Admin link to desktop nav (after "Who We Help") ────────
+        var headerMenus = document.querySelectorAll('header .e-n-menu');
+        headerMenus.forEach(function(menu) {
+            if (!menu.querySelector('.hm-admin-desktop-li')) {
+                var li = document.createElement('li');
+                li.className = 'e-n-menu-item hm-admin-desktop-li';
+                li.innerHTML = '<a href="/admin.html">' +
+                    '<svg style="width:13px;height:13px;fill:#00D084;" viewBox="0 0 448 512"><path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"/></svg>' +
+                    'Admin</a>';
+                menu.appendChild(li);
+            }
+        });
+    }
+
+    // Run once DOM is ready and again after Elementor may have built menus
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            applyFixes();
+            setTimeout(applyFixes, 1200);
+            setTimeout(applyFixes, 2500);
+        });
+    } else {
+        applyFixes();
+        setTimeout(applyFixes, 1200);
+        setTimeout(applyFixes, 2500);
+    }
+})();
+</script>
+
 </head>
 <body class="home wp-singular page-template-default page page-id-67 wp-custom-logo wp-theme-hello-elementor jkit-color-scheme elementor-default elementor-kit-4 elementor-page elementor-page-67">
 
