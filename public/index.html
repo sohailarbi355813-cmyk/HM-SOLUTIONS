@@ -224,55 +224,72 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 </style>
 
-<style id="user-requested-overrides">
-    /* SOPHISTICATED SKY BLUE SPECTRUM BACKGROUND ON BODY */
+<style id="hm-solutions-60-30-10-overrides">
+    /* ========================================================
+       60-30-10 COLOR RULE ENFORCEMENT
+       60% Dominant: #FAFCFF (Clean Ice White) - Backgrounds
+       30% Secondary: #0A2540 (Deep Midnight Blue) - Typography
+       10% Accent: #00D084 (Vibrant Medical Green) - Actions
+       ======================================================== */
+
+    /* 60% DOMINANT (BACKGROUNDS + SPECTRUM WAVE) */
     body {
-        background-color: #f0f8ff !important;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23f0f8ff'/%3E%3Cstop offset='100%25' stop-color='%23d0e8f2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23g)'/%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-opacity='0.8'%3E%3Cpath d='M-200 200 Q 400 -100 900 300 T 2000 100'/%3E%3Cpath d='M-200 240 Q 400 -60 900 340 T 2000 140'/%3E%3Cpath d='M-200 280 Q 400 -20 900 380 T 2000 180'/%3E%3Cpath d='M-200 320 Q 400 20 900 420 T 2000 220'/%3E%3Cpath d='M-200 360 Q 400 60 900 460 T 2000 260'/%3E%3Cpath d='M-200 400 Q 400 100 900 500 T 2000 300'/%3E%3C/g%3E%3C/svg%3E") !important;
+        background-color: #FAFCFF !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23FAFCFF'/%3E%3Cstop offset='100%25' stop-color='%23EAF3FA'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23g)'/%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-opacity='0.8'%3E%3Cpath d='M-200 200 Q 400 -100 900 300 T 2000 100'/%3E%3Cpath d='M-200 240 Q 400 -60 900 340 T 2000 140'/%3E%3Cpath d='M-200 280 Q 400 -20 900 380 T 2000 180'/%3E%3Cpath d='M-200 320 Q 400 20 900 420 T 2000 220'/%3E%3Cpath d='M-200 360 Q 400 60 900 460 T 2000 260'/%3E%3Cpath d='M-200 400 Q 400 100 900 500 T 2000 300'/%3E%3C/g%3E%3C/svg%3E") !important;
         background-attachment: fixed !important;
         background-size: cover !important;
     }
-
-    /* MAKE ALL CONTAINERS TRANSPARENT TO REVEAL THE BACKGROUND */
     header, footer, section, .elementor-section, .elementor-top-section, .elementor-inner-section, .elementor-container, .elementor-column, .elementor-widget-wrap, .e-con, .e-con-inner, .elementor-location-header, .elementor-location-footer {
         background-color: transparent !important;
         background: transparent !important;
         background-image: none !important;
     }
 
-    /* ENFORCE BLACK TEXT EVERYWHERE */
+    /* 30% SECONDARY (TYPOGRAPHY, ICONS, LOGOS) */
     *, p, h1, h2, h3, h4, h5, h6, a, span, li, div {
-        color: #000000 !important;
+        color: #0A2540 !important;
     }
-
-    /* FIX INVISIBLE WHITE PARTNER LOGOS ON LIGHT BACKGROUND */
+    i, .elementor-icon, .e-font-icon-svg {
+        color: #0A2540 !important;
+    }
+    svg, path {
+        fill: #0A2540 !important;
+    }
+    
+    /* Fix Partner Logos Grid */
     img.elementor-animation-grow {
-        filter: brightness(0) !important;
-        opacity: 0.7 !important;
+        filter: brightness(0) !important; 
+        opacity: 0.8 !important; 
     }
     img.elementor-animation-grow:hover {
         opacity: 1 !important;
     }
 
-    /* REMOVE BLUE TICKS AND FIX ICONS */
-    i, .elementor-icon, .e-font-icon-svg {
-        color: #000000 !important;
-    }
-    .elementor-icon-list-icon svg, .elementor-icon-list-icon path {
-        fill: #000000 !important;
-    }
-
-    /* FIX ANIMATED HEADLINE HIGHLIGHTS (DONT FILL SOLID BLACK) */
-    .elementor-headline-dynamic-wrapper svg path {
-        stroke: #000000 !important;
-        fill: none !important;
-    }
-
-    /* MAKE BUTTONS VISIBLE ON WHITE BACKGROUND */
+    /* 10% ACCENT (BUTTONS & HIGHLIGHTS) */
     .elementor-button, .jkit-button, button, .btn {
-        background-color: #f0f0f0 !important;
-        color: #000000 !important;
-        border: 1px solid #000000 !important;
+        background-color: #00D084 !important;
+        color: #FFFFFF !important; 
+        border: none !important;
+        border-radius: 6px !important;
+        box-shadow: 0 4px 14px rgba(0, 208, 132, 0.3) !important;
+        transition: all 0.3s ease !important;
+    }
+    .elementor-button:hover, .jkit-button:hover, button:hover, .btn:hover {
+        background-color: #00b370 !important;
+        transform: translateY(-2px) !important;
+    }
+    .elementor-button *, .jkit-button *, button *, .btn * {
+        color: #FFFFFF !important;
+        fill: #FFFFFF !important;
+    }
+
+    /* Specific Accent Fixes */
+    .elementor-icon-list-icon svg, .elementor-icon-list-icon path {
+        fill: #00D084 !important; 
+    }
+    .elementor-headline-dynamic-wrapper svg path {
+        stroke: #00D084 !important; 
+        fill: none !important;
     }
 </style>
 
