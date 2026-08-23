@@ -305,6 +305,7 @@ document.addEventListener("DOMContentLoaded", function () {
         background-image: none !important;
         box-shadow: 0 10px 40px rgba(10, 37, 64, 0.15) !important;
         backdrop-filter: blur(10px) !important;
+        z-index: 100000 !important;
     }
 
     /* FIX INVISIBLE CASE STUDY LOGOS (Turn white to Medical Green #00D084) */
@@ -344,7 +345,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* 10% ACCENT (BUTTONS & HIGHLIGHTS) */
-    .elementor-button, .jkit-button, button, .btn {
+    .elementor-button, .jkit-button, button:not([class*="toggle"]):not([class*="icon"]):not([class*="elementskit-menu-hamburger"]), .btn {
         background-color: #00D084 !important;
         color: #FFFFFF !important; 
         border: none !important;
