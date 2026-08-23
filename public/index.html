@@ -239,10 +239,21 @@ document.addEventListener("DOMContentLoaded", function () {
         background-attachment: fixed !important;
         background-size: cover !important;
     }
-    header, footer, section, .elementor-section, .elementor-top-section, .elementor-inner-section, .elementor-container, .elementor-column, .elementor-widget-wrap, .e-con, .e-con-inner, .elementor-location-header, .elementor-location-footer {
+
+    /* MAKE CONTENT CONTAINERS TRANSPARENT TO REVEAL THE BACKGROUND */
+    section, .elementor-section, .elementor-top-section, .elementor-inner-section, .elementor-container, .elementor-column, .elementor-widget-wrap, .e-con, .e-con-inner, footer, .elementor-location-footer {
         background-color: transparent !important;
         background: transparent !important;
         background-image: none !important;
+    }
+
+    /* MAKE HEADER OPAQUE TO FIX FLOATING OVERLAP */
+    header, .elementor-location-header {
+        background-color: rgba(250, 252, 255, 0.95) !important;
+        backdrop-filter: blur(10px) !important;
+        background-image: none !important;
+        box-shadow: 0 4px 30px rgba(10, 37, 64, 0.08) !important;
+        z-index: 99999 !important;
     }
 
     /* 30% SECONDARY (TYPOGRAPHY, ICONS, LOGOS) */
