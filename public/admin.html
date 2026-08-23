@@ -1,333 +1,475 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<script>
-    (function() {
-        var p = prompt("Enter Admin Password:");
-        if (p !== "hmsolutions0826") {
-            document.documentElement.innerHTML = "<body style='background:#FAFCFF; color:#0A2540; font-family:sans-serif; display:flex; justify-content:center; align-items:center; height:100vh; margin:0;'><h2 style='color:#00D084;'>Access Denied.</h2></body>";
-            throw new Error("Access Denied");
-        }
-    })();
-</script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HM SOLUTIONS - Admin Invoice Generator</title>
+    <title>HM SOLUTIONS — Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #00D084;      /* 10% Accent */
-            --primary-light: #00b370;
-            --bg-color: #FAFCFF;     /* 60% Dominant */
-            --text-dark: #0A2540;    /* 30% Secondary */
-            --border-color: #E2E8F0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-dark);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
+            font-family: 'Inter', sans-serif;
+            background: #0A2540;
+            min-height: 100vh;
+            color: #0A2540;
         }
 
-        /* --- LOGIN SCREEN --- */
-        #login-screen {
+        /* ─── LOCK SCREEN ─────────────────────────────── */
+        #lock-screen {
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
+            justify-content: center;
+            background: linear-gradient(135deg, #0A2540 0%, #0d3060 50%, #0A2540 100%);
+            padding: 20px;
         }
-        
-        .login-box {
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+        .lock-card {
+            background: #fff;
+            border-radius: 24px;
+            padding: 48px 40px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.4);
             text-align: center;
-            color: var(--text-dark);
-            width: 100%;
-            max-width: 400px;
-        }
-
-        .login-box h2 {
-            color: var(--primary);
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-
-        .login-input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-
-        .btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            width: 100%;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background-color: var(--primary-light);
-        }
-
-        #error-msg {
-            color: #d9534f;
-            margin-top: 10px;
-            display: none;
-            font-weight: bold;
-        }
-
-        /* --- APP LAYOUT --- */
-        #app-container {
-            display: none; /* Hidden until logged in */
-            display: flex; /* Override via JS */
-            height: 100vh;
+            position: relative;
             overflow: hidden;
         }
-
-        .sidebar {
-            width: 400px;
-            background: white;
-            padding: 20px;
-            border-right: 1px solid var(--border-color);
-            overflow-y: auto;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
-        }
-
-        .main-content {
-            flex-grow: 1;
-            padding: 40px;
-            overflow-y: auto;
-            background: var(--bg-color);
-            display: flex;
-            justify-content: center;
-        }
-
-        /* --- SIDEBAR FORMS --- */
-        .form-group {
-            margin-bottom: 15px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            font-size: 14px;
-            color: #555;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-family: inherit;
-        }
-
-        .section-title {
-            color: var(--primary);
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-            margin-top: 25px;
-        }
-
-        .item-row {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 10px;
-            background: #f9f9f9;
-            padding: 10px;
-            border-radius: 4px;
-            position: relative;
-        }
-
-        .item-row input {
-            flex: 1;
-        }
-        .item-row input.small {
-            flex: 0 0 60px;
-        }
-        
-        .remove-item {
+        .lock-card::before {
+            content: '';
             position: absolute;
-            top: -8px;
-            right: -8px;
-            background: #d9534f;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00D084, #00b370);
+        }
+
+        .lock-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #00D084, #00b370);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 24px;
+        }
+        .lock-icon svg { fill: white; width: 32px; height: 32px; }
+
+        .lock-card h1 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #0A2540;
+            margin-bottom: 6px;
+        }
+        .lock-card p {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+
+        .lock-label {
+            display: block;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            color: #0A2540;
+            margin-bottom: 8px;
+        }
+
+        .lock-input-wrap {
+            position: relative;
+            margin-bottom: 24px;
+        }
+        .lock-input {
+            width: 100%;
+            padding: 14px 48px 14px 16px;
+            border: 2px solid #E2E8F0;
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: border-color 0.2s;
+            color: #0A2540;
+            background: #F8FAFC;
+        }
+        .lock-input:focus { border-color: #00D084; background: #fff; }
+        .lock-input.error { border-color: #EF4444; background: #FFF5F5; animation: shake 0.4s; }
+
+        .toggle-pw {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+        }
+
+        @keyframes shake {
+            0%,100%{transform:translateX(0);}
+            20%{transform:translateX(-8px);}
+            40%{transform:translateX(8px);}
+            60%{transform:translateX(-5px);}
+            80%{transform:translateX(5px);}
+        }
+
+        .lock-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #00D084, #00b370);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s;
+            box-shadow: 0 4px 20px rgba(0,208,132,0.35);
+        }
+        .lock-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,208,132,0.45); }
+        .lock-btn:active { transform: translateY(0); }
+
+        .error-msg {
+            color: #EF4444;
+            font-size: 13px;
+            margin-top: 12px;
+            display: none;
+            font-weight: 500;
+        }
+
+        /* ─── APP ─────────────────────────────────────── */
+        #app { display: none; background: #F1F5F9; min-height: 100vh; }
+
+        /* Top Bar */
+        .app-topbar {
+            background: #0A2540;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .app-topbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        .app-topbar-brand svg { fill: #00D084; width: 20px; height: 20px; }
+        .app-topbar-actions { display: flex; gap: 10px; }
+        .btn-print {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #00D084;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+        .btn-print:hover { background: #00b370; }
+
+        /* Layout */
+        .app-body {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 0;
+            min-height: calc(100vh - 60px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: white;
+            border-right: 1px solid #E2E8F0;
+            overflow-y: auto;
+            padding: 24px;
+        }
+        .sidebar h3 {
+            font-size: 11px;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 20px 0 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #F1F5F9;
+        }
+        .sidebar h3:first-child { margin-top: 0; }
+
+        .form-group { margin-bottom: 14px; }
+        .form-group label {
+            display: block;
             font-size: 12px;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 9px 12px;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            color: #0A2540;
+            outline: none;
+            transition: border-color 0.2s;
+            background: #FAFCFF;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus { border-color: #00D084; }
+        .form-group textarea { resize: vertical; }
+
+        /* Line Items */
+        .item-row {
+            background: #F8FAFC;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 8px;
+            position: relative;
+        }
+        .item-row input {
+            width: 100%;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 6px;
+            padding: 7px 10px;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            margin-bottom: 6px;
+            background: white;
+        }
+        .item-row input:focus { border-color: #00D084; }
+        .item-row-row { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+        .remove-item {
+            position: absolute;
+            top: 8px; right: 8px;
+            width: 22px; height: 22px;
+            border-radius: 50%;
+            background: #FEE2E2;
+            color: #EF4444;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .add-item-btn {
-            background: #eee;
-            color: #333;
-            border: 1px dashed #ccc;
-            padding: 10px;
             width: 100%;
+            padding: 10px;
+            border: 2px dashed #00D084;
+            background: transparent;
+            color: #00D084;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
             cursor: pointer;
-            border-radius: 4px;
-            margin-bottom: 20px;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.2s;
+        }
+        .add-item-btn:hover { background: #F0FFF8; }
+
+        /* Preview Area */
+        .preview-area {
+            padding: 32px;
+            overflow-y: auto;
         }
 
-        /* --- INVOICE PREVIEW --- */
-        .invoice-preview {
+        /* Invoice Paper */
+        .invoice-paper {
             background: white;
-            width: 210mm; /* A4 width */
-            min-height: 297mm; /* A4 height */
-            padding: 40mm; /* standard print margins */
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            box-sizing: border-box;
-            position: relative;
+            border-radius: 16px;
+            box-shadow: 0 4px 40px rgba(10,37,64,0.1);
+            padding: 48px;
+            max-width: 780px;
+            margin: 0 auto;
         }
 
-        .invoice-header {
+        .inv-header {
             display: flex;
             justify-content: space-between;
-            border-bottom: 3px solid var(--primary);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-
-        .invoice-header h1 {
-            color: var(--primary);
-            margin: 0 0 10px 0;
-            font-size: 36px;
-        }
-
-        .company-details {
-            text-align: right;
-            color: #777;
-            font-size: 14px;
-        }
-
-        .invoice-meta {
-            display: flex;
-            justify-content: space-between;
+            align-items: flex-start;
             margin-bottom: 40px;
+            padding-bottom: 28px;
+            border-bottom: 3px solid #00D084;
         }
-
-        .bill-to h3 {
-            margin: 0 0 10px 0;
-            color: var(--primary);
+        .inv-header h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #0A2540;
+            letter-spacing: -1px;
         }
-
-        .invoice-info table {
+        .inv-logo { height: 80px; display: block; }
+        .inv-company {
             text-align: right;
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.7;
         }
-        
-        .invoice-info th {
-            padding-right: 15px;
-            color: #555;
-        }
+        .inv-company strong { color: #0A2540; font-size: 15px; }
 
-        .invoice-table {
+        .inv-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 36px;
+        }
+        .inv-bill-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        #out-client-name { font-size: 18px; font-weight: 700; color: #0A2540; }
+        #out-client-addr { font-size: 14px; color: #64748b; white-space: pre-line; }
+
+        .inv-details-table { width: 100%; border-collapse: collapse; }
+        .inv-details-table tr td { padding: 4px 0; font-size: 14px; color: #64748b; }
+        .inv-details-table tr td:first-child { font-weight: 600; color: #0A2540; padding-right: 16px; }
+
+        .inv-items-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 30px;
+            margin-bottom: 24px;
         }
-
-        .invoice-table th {
-            background-color: var(--primary);
-            color: white;
-            padding: 12px;
+        .inv-items-table thead tr {
+            background: #0A2540;
+        }
+        .inv-items-table thead th {
+            padding: 12px 16px;
             text-align: left;
+            font-size: 12px;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        
-        .invoice-table th:last-child, .invoice-table td:last-child {
-            text-align: right;
+        .inv-items-table thead th:last-child,
+        .inv-items-table tbody td:last-child { text-align: right; }
+        .inv-items-table thead th:nth-child(2),
+        .inv-items-table tbody td:nth-child(2) { text-align: center; }
+        .inv-items-table tbody tr:nth-child(even) { background: #F8FAFC; }
+        .inv-items-table tbody td { padding: 12px 16px; font-size: 14px; color: #334155; }
+
+        .inv-totals {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 32px;
         }
+        .inv-totals-inner { min-width: 240px; }
+        .inv-totals-inner table { width: 100%; border-collapse: collapse; }
+        .inv-totals-inner td { padding: 6px 8px; font-size: 14px; color: #475569; }
+        .inv-totals-inner td:last-child { text-align: right; }
+        .total-final { background: #0A2540; border-radius: 8px; }
+        .total-final td { color: white !important; font-weight: 700; font-size: 16px; padding: 10px 12px !important; }
 
-        .invoice-table td {
-            padding: 12px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .invoice-totals {
-            width: 50%;
-            float: right;
-        }
-
-        .invoice-totals table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .invoice-totals td {
-            padding: 10px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .invoice-totals .total-row {
-            font-weight: bold;
-            font-size: 20px;
-            color: var(--primary);
-            border-bottom: 2px solid var(--primary);
-        }
-
-        .clear { clear: both; }
-
-        .footer-note {
-            margin-top: 50px;
-            color: #777;
-            font-size: 14px;
+        .inv-footer {
+            border-top: 1px solid #E2E8F0;
+            padding-top: 20px;
             text-align: center;
+            color: #94a3b8;
+            font-size: 13px;
         }
 
-        /* --- PRINT STYLES --- */
+        /* ─── RESPONSIVE ───────────────────────────────── */
+        @media (max-width: 768px) {
+            .app-body {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid #E2E8F0;
+            }
+            .preview-area { padding: 16px; }
+            .invoice-paper { padding: 24px 16px; border-radius: 12px; }
+            .inv-header { flex-direction: column; gap: 16px; }
+            .inv-logo { height: 56px; }
+            .inv-header h1 { font-size: 32px; }
+            .inv-company { text-align: left; }
+            .inv-meta { grid-template-columns: 1fr; gap: 20px; }
+        }
+
         @media print {
-            body { background: white; }
-            #login-screen, .sidebar { display: none !important; }
-            .main-content { padding: 0; box-shadow: none; display: block; }
-            .invoice-preview { box-shadow: none; padding: 0; min-height: auto; width: 100%; }
+            .app-topbar, .sidebar { display: none !important; }
+            .app-body { grid-template-columns: 1fr; }
+            .preview-area { padding: 0; overflow: visible; }
+            .invoice-paper { box-shadow: none; border-radius: 0; padding: 20px; }
+            #app { background: white; }
         }
     </style>
 </head>
 <body>
 
-    <!-- MAIN APP (Hidden by default) -->
-    <div id="app-container" style="display: flex;">
-        
-        <!-- CONTROLS SIDEBAR -->
-        <div class="sidebar">
-            <h2 style="color: var(--primary); margin-top:0;">Invoice Controls</h2>
-            <button class="btn" onclick="window.print()" style="margin-bottom: 20px; background: #333;">ðŸ–¨ï¸ Print / Save as PDF</button>
+<!-- ═══════════════════ LOCK SCREEN ═══════════════════ -->
+<div id="lock-screen">
+    <div class="lock-card">
+        <div class="lock-icon">
+            <svg viewBox="0 0 448 512"><path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"/></svg>
+        </div>
+        <h1>Admin Portal</h1>
+        <p>HM SOLUTIONS — Invoice Generator</p>
 
-            <h3 class="section-title">Invoice Details</h3>
+        <label class="lock-label">Password</label>
+        <div class="lock-input-wrap">
+            <input type="password" id="lock-pw" class="lock-input" placeholder="Enter your admin password" onkeydown="if(event.key==='Enter')unlock()">
+            <button class="toggle-pw" onclick="togglePw()" type="button" tabindex="-1" title="Show/Hide">
+                <svg id="eye-icon" viewBox="0 0 576 512" width="18" height="18" fill="currentColor"><path d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z"/></svg>
+            </button>
+        </div>
+        <button class="lock-btn" onclick="unlock()">
+            Unlock Admin Area
+        </button>
+        <p id="error-msg" class="error-msg">❌ Incorrect password. Please try again.</p>
+    </div>
+</div>
+
+<!-- ═══════════════════ APP ═══════════════════════════ -->
+<div id="app">
+    <div class="app-topbar">
+        <div class="app-topbar-brand">
+            <svg viewBox="0 0 448 512"><path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"/></svg>
+            HM SOLUTIONS — Invoice Generator
+        </div>
+        <div class="app-topbar-actions">
+            <button class="btn-print" onclick="window.print()">
+                <svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor"><path d="M448 192V77.25a32 32 0 0 0-9.37-22.63L370.38 9.38A32 32 0 0 0 347.75 0H64a64 64 0 0 0-64 64v384a64 64 0 0 0 64 64h384a64 64 0 0 0 64-64V224a32 32 0 0 0-32-32zm-48 256H112a16 16 0 0 1-16-16V304h272v128a16 16 0 0 0 16 16zm0-304H96v-64h256v48a16 16 0 0 0 16 16h32zM256 336a24 24 0 1 0 24 24 24 24 0 0 0-24-24z"/></svg>
+                Save PDF
+            </button>
+        </div>
+    </div>
+
+    <div class="app-body">
+        <!-- SIDEBAR CONTROLS -->
+        <div class="sidebar">
+            <h3>Invoice Details</h3>
             <div class="form-group">
                 <label>Invoice Number</label>
                 <input type="text" id="in-inv-num" value="INV-0001" oninput="updatePreview()">
             </div>
             <div class="form-group">
-                <label>Date</label>
+                <label>Invoice Date</label>
                 <input type="date" id="in-date" onchange="updatePreview()">
             </div>
             <div class="form-group">
@@ -335,194 +477,202 @@
                 <input type="date" id="in-due" onchange="updatePreview()">
             </div>
 
-            <h3 class="section-title">Bill To</h3>
+            <h3>Bill To</h3>
             <div class="form-group">
                 <label>Client / Company Name</label>
                 <input type="text" id="in-client-name" placeholder="Client Name" oninput="updatePreview()">
             </div>
             <div class="form-group">
                 <label>Client Address</label>
-                <textarea id="in-client-addr" rows="3" placeholder="123 Main St..." oninput="updatePreview()"></textarea>
+                <textarea id="in-client-addr" rows="3" placeholder="123 Main St, City, Province..." oninput="updatePreview()"></textarea>
             </div>
 
-            <h3 class="section-title">Line Items</h3>
-            <div id="items-container">
-                <!-- Items generated via JS -->
-            </div>
+            <h3>Line Items</h3>
+            <div id="items-container"></div>
             <button class="add-item-btn" onclick="addItem()">+ Add Line Item</button>
 
-            <h3 class="section-title">Settings</h3>
+            <h3>Tax</h3>
             <div class="form-group">
                 <label>Tax Rate (%)</label>
-                <input type="number" id="in-tax" value="13" oninput="updatePreview()">
+                <input type="number" id="in-tax" value="13" min="0" max="100" oninput="updatePreview()">
             </div>
         </div>
 
-        <!-- PREVIEW AREA -->
-        <div class="main-content">
-            <div class="invoice-preview" id="invoice-render">
-                
-                <div class="invoice-header">
+        <!-- PREVIEW -->
+        <div class="preview-area">
+            <div class="invoice-paper" id="invoice-render">
+                <div class="inv-header">
                     <div>
                         <h1>INVOICE</h1>
-                        <img src="/images/logo_transparent.png" alt="HM Solutions Logo" style="height: 110px; margin-top: 10px;" />
                     </div>
-                    <div class="company-details">
-                        <strong>HM SOLUTIONS</strong><br>
-                        Canada's Medical Marketing Agency<br>
-                        contact@hmsolutions.ca<br>
-                        www.hmsolutions.ca
+                    <div>
+                        <img src="/images/logo_transparent.png" class="inv-logo" alt="HM Solutions" onerror="this.style.display='none'">
+                        <div class="inv-company">
+                            <strong>HM SOLUTIONS</strong><br>
+                            Medical Marketing Agency<br>
+                            info@hmsolutions.site<br>
+                            www.hmsolutions.site
+                        </div>
                     </div>
                 </div>
 
-                <div class="invoice-meta">
-                    <div class="bill-to">
-                        <h3>BILL TO:</h3>
-                        <div id="out-client-name" style="font-weight:bold; font-size:18px;">[Client Name]</div>
-                        <div id="out-client-addr" style="white-space: pre-line; color:#555;">[Client Address]</div>
+                <div class="inv-meta">
+                    <div>
+                        <div class="inv-bill-label">Bill To</div>
+                        <div id="out-client-name">[Client Name]</div>
+                        <div id="out-client-addr">[Client Address]</div>
                     </div>
-                    <div class="invoice-info">
-                        <table>
-                            <tr><th>Invoice #:</th><td id="out-inv-num">INV-0001</td></tr>
-                            <tr><th>Date:</th><td id="out-date">YYYY-MM-DD</td></tr>
-                            <tr><th>Due Date:</th><td id="out-due">YYYY-MM-DD</td></tr>
+                    <div>
+                        <table class="inv-details-table">
+                            <tr><td>Invoice #:</td><td id="out-inv-num">INV-0001</td></tr>
+                            <tr><td>Date:</td><td id="out-date">—</td></tr>
+                            <tr><td>Due Date:</td><td id="out-due">—</td></tr>
                         </table>
                     </div>
                 </div>
 
-                <table class="invoice-table">
+                <table class="inv-items-table">
                     <thead>
                         <tr>
                             <th>Description</th>
-                            <th style="width: 100px; text-align:center;">Qty</th>
-                            <th style="width: 120px; text-align:right;">Rate</th>
-                            <th style="width: 120px; text-align:right;">Amount</th>
+                            <th>Qty</th>
+                            <th>Rate</th>
+                            <th>Amount</th>
                         </tr>
                     </thead>
-                    <tbody id="out-items">
-                        <!-- Items rendered here -->
-                    </tbody>
+                    <tbody id="out-items"></tbody>
                 </table>
 
-                <div class="invoice-totals">
-                    <table>
-                        <tr>
-                            <td>Subtotal:</td>
-                            <td id="out-subtotal" style="text-align:right;">$0.00</td>
-                        </tr>
-                        <tr>
-                            <td>Tax (<span id="out-tax-rate">13</span>%):</td>
-                            <td id="out-tax" style="text-align:right;">$0.00</td>
-                        </tr>
-                        <tr class="total-row">
-                            <td>TOTAL DUE:</td>
-                            <td id="out-total" style="text-align:right;">$0.00</td>
-                        </tr>
-                    </table>
+                <div class="inv-totals">
+                    <div class="inv-totals-inner">
+                        <table>
+                            <tr>
+                                <td>Subtotal:</td>
+                                <td id="out-subtotal">$0.00</td>
+                            </tr>
+                            <tr>
+                                <td>Tax (<span id="out-tax-rate">13</span>%):</td>
+                                <td id="out-tax">$0.00</td>
+                            </tr>
+                            <tr class="total-final">
+                                <td>TOTAL DUE:</td>
+                                <td id="out-total">$0.00</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
-                <div class="clear"></div>
 
-                <div class="footer-note">
-                    <p>Thank you for choosing HM SOLUTIONS for your medical marketing needs.<br>Please make payments payable to HM SOLUTIONS.</p>
+                <div class="inv-footer">
+                    Thank you for choosing HM SOLUTIONS for your medical marketing needs.<br>
+                    Please make payments payable to <strong>HM SOLUTIONS</strong>.
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <script>
-        // Set today's date defaults
+<script>
+    // ── Password ───────────────────────────────────────
+    const ADMIN_PASSWORD = 'hmsolutions0826';
+
+    function unlock() {
+        const pw = document.getElementById('lock-pw').value;
+        const input = document.getElementById('lock-pw');
+        const err = document.getElementById('error-msg');
+        if (pw === ADMIN_PASSWORD) {
+            document.getElementById('lock-screen').style.display = 'none';
+            document.getElementById('app').style.display = 'block';
+            document.body.style.background = '#F1F5F9';
+        } else {
+            input.classList.add('error');
+            err.style.display = 'block';
+            setTimeout(() => input.classList.remove('error'), 500);
+            input.value = '';
+            input.focus();
+        }
+    }
+
+    function togglePw() {
+        const input = document.getElementById('lock-pw');
+        input.type = input.type === 'password' ? 'text' : 'password';
+    }
+
+    // ── Invoice Logic ──────────────────────────────────
+    let items = [];
+
+    window.onload = function() {
         document.getElementById('in-date').valueAsDate = new Date();
-        let dueDate = new Date();
-        dueDate.setDate(dueDate.getDate() + 30);
-        document.getElementById('in-due').valueAsDate = dueDate;
+        const due = new Date();
+        due.setDate(due.getDate() + 30);
+        document.getElementById('in-due').valueAsDate = due;
+        addItem();
+        updatePreview();
+    };
 
-        // --- INVOICE LOGIC ---
-        let items = [];
-        window.onload = function() { addItem(); updatePreview(); };
+    function addItem() {
+        const id = Date.now();
+        items.push({ id, desc: '', qty: 1, rate: 0 });
+        renderItems();
+        updatePreview();
+    }
 
-        function addItem() {
-            const id = Date.now();
-            items.push({ id, desc: '', qty: 1, rate: 0 });
-            renderItemControls();
-            updatePreview();
-        }
+    function removeItem(id) {
+        items = items.filter(i => i.id !== id);
+        renderItems();
+        updatePreview();
+    }
 
-        function removeItem(id) {
-            items = items.filter(i => i.id !== id);
-            renderItemControls();
-            updatePreview();
-        }
+    function updateItem(id, field, value) {
+        const item = items.find(i => i.id === id);
+        if (item) { item[field] = value; updatePreview(); }
+    }
 
-        function updateItem(id, field, value) {
-            const item = items.find(i => i.id === id);
-            if(item) {
-                item[field] = value;
-                updatePreview();
-            }
-        }
+    function renderItems() {
+        const container = document.getElementById('items-container');
+        container.innerHTML = '';
+        items.forEach((item, index) => {
+            const row = document.createElement('div');
+            row.className = 'item-row';
+            row.innerHTML = `
+                <button class="remove-item" onclick="removeItem(${item.id})" title="Remove">×</button>
+                <input type="text" placeholder="Service description..." value="${item.desc}" oninput="updateItem(${item.id}, 'desc', this.value)" style="padding-right:30px;">
+                <div class="item-row-row">
+                    <input type="number" placeholder="Qty" value="${item.qty}" min="1" oninput="updateItem(${item.id}, 'qty', parseFloat(this.value)||0)">
+                    <input type="number" placeholder="Rate $" value="${item.rate}" min="0" step="0.01" oninput="updateItem(${item.id}, 'rate', parseFloat(this.value)||0)">
+                </div>
+            `;
+            container.appendChild(row);
+        });
+    }
 
-        function renderItemControls() {
-            const container = document.getElementById('items-container');
-            container.innerHTML = '';
-            
-            items.forEach((item, index) => {
-                const row = document.createElement('div');
-                row.className = 'item-row';
-                row.innerHTML = `
-                    <button class="remove-item" onclick="removeItem(${item.id})">x</button>
-                    <input type="text" placeholder="Service (e.g. SEO Audit)" value="${item.desc}" oninput="updateItem(${item.id}, 'desc', this.value)">
-                    <input type="number" class="small" placeholder="Qty" value="${item.qty}" min="1" oninput="updateItem(${item.id}, 'qty', parseFloat(this.value)||0)">
-                    <input type="number" class="small" placeholder="Rate" value="${item.rate}" min="0" step="0.01" oninput="updateItem(${item.id}, 'rate', parseFloat(this.value)||0)">
-                `;
-                container.appendChild(row);
-            });
-        }
+    function fmt(n) { return '$' + parseFloat(n).toFixed(2); }
 
-        function formatCurrency(num) {
-            return '$' + parseFloat(num).toFixed(2);
-        }
+    function updatePreview() {
+        document.getElementById('out-inv-num').textContent = document.getElementById('in-inv-num').value || 'INV-XXXX';
+        document.getElementById('out-date').textContent = document.getElementById('in-date').value || '—';
+        document.getElementById('out-due').textContent = document.getElementById('in-due').value || '—';
+        document.getElementById('out-client-name').textContent = document.getElementById('in-client-name').value || '[Client Name]';
+        document.getElementById('out-client-addr').textContent = document.getElementById('in-client-addr').value || '[Client Address]';
 
-        function updatePreview() {
-            // Update Basic Info
-            document.getElementById('out-inv-num').innerText = document.getElementById('in-inv-num').value || 'INV-XXXX';
-            document.getElementById('out-date').innerText = document.getElementById('in-date').value;
-            document.getElementById('out-due').innerText = document.getElementById('in-due').value;
-            
-            document.getElementById('out-client-name').innerText = document.getElementById('in-client-name').value || '[Client Name]';
-            document.getElementById('out-client-addr').innerText = document.getElementById('in-client-addr').value || '[Client Address]';
+        const tbody = document.getElementById('out-items');
+        tbody.innerHTML = '';
+        let subtotal = 0;
+        items.forEach(item => {
+            if (!item.desc) return;
+            const amount = item.qty * item.rate;
+            subtotal += amount;
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${item.desc}</td><td style="text-align:center">${item.qty}</td><td style="text-align:right">${fmt(item.rate)}</td><td style="text-align:right">${fmt(amount)}</td>`;
+            tbody.appendChild(tr);
+        });
 
-            // Calculate & Render Items
-            const outItems = document.getElementById('out-items');
-            outItems.innerHTML = '';
-            
-            let subtotal = 0;
-
-            items.forEach(item => {
-                if(!item.desc) return; // Skip empty descriptions
-                const amount = item.qty * item.rate;
-                subtotal += amount;
-
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td>${item.desc}</td>
-                    <td style="text-align:center;">${item.qty}</td>
-                    <td style="text-align:right;">${formatCurrency(item.rate)}</td>
-                    <td style="text-align:right;">${formatCurrency(amount)}</td>
-                `;
-                outItems.appendChild(tr);
-            });
-
-            // Calculate Totals
-            const taxRate = parseFloat(document.getElementById('in-tax').value) || 0;
-            const taxAmount = subtotal * (taxRate / 100);
-            const total = subtotal + taxAmount;
-
-            document.getElementById('out-subtotal').innerText = formatCurrency(subtotal);
-            document.getElementById('out-tax-rate').innerText = taxRate;
-            document.getElementById('out-tax').innerText = formatCurrency(taxAmount);
-            document.getElementById('out-total').innerText = formatCurrency(total);
-        }
-    </script>
+        const taxRate = parseFloat(document.getElementById('in-tax').value) || 0;
+        const tax = subtotal * (taxRate / 100);
+        document.getElementById('out-subtotal').textContent = fmt(subtotal);
+        document.getElementById('out-tax-rate').textContent = taxRate;
+        document.getElementById('out-tax').textContent = fmt(tax);
+        document.getElementById('out-total').textContent = fmt(subtotal + tax);
+    }
+</script>
 </body>
 </html>
-
